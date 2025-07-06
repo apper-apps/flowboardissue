@@ -41,9 +41,8 @@
 
 @layer components {
   .btn {
-    @apply px-3 py-2 sm:px-4 sm:py-2 rounded-md font-medium transition-all duration-200 inline-flex items-center justify-center gap-1 sm:gap-2 text-sm sm:text-base min-h-[44px] sm:min-h-auto;
+    @apply px-3 py-2 sm:px-4 sm:py-2 rounded-md font-medium transition-all duration-200 inline-flex items-center justify-center gap-1 sm:gap-2 text-sm sm:text-base min-h-[44px] sm:min-h-fit;
   }
-
   .btn-primary {
     @apply bg-primary hover:bg-primary/90 text-white shadow-sm hover:shadow-primary active:scale-95;
   }
@@ -69,13 +68,11 @@
   }
 
 .input {
-    @apply w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm sm:text-base min-h-[44px] sm:min-h-auto;
+    @apply w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm sm:text-base min-h-[44px] sm:min-h-fit;
   }
-
-  .textarea {
-    @apply w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none text-sm sm:text-base min-h-[44px] sm:min-h-auto;
+.textarea {
+    @apply w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none text-sm sm:text-base min-h-[44px] sm:min-h-fit;
   }
-
   .status-badge {
     @apply px-3 py-1 rounded-full text-xs font-medium;
   }
@@ -97,9 +94,8 @@
   }
 
 .sidebar-link {
-    @apply flex items-center gap-3 px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors duration-200 min-h-[44px] sm:min-h-auto;
+    @apply flex items-center gap-3 px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors duration-200 min-h-[44px] sm:min-h-fit;
   }
-
   .sidebar-link.active {
     @apply bg-primary text-white hover:bg-primary/90 hover:text-white;
   }
