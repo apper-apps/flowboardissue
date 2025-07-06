@@ -39,7 +39,7 @@ const Layout = () => {
     setCurrentWorkspace(workspace)
   }
 
-  return (
+return (
     <div className="min-h-screen bg-gray-50">
       <Sidebar
         isOpen={sidebarOpen}
@@ -49,14 +49,14 @@ const Layout = () => {
         onWorkspaceChange={handleWorkspaceChange}
       />
       
-      <div className="lg:ml-64">
+      <div className="lg:ml-64 transition-all duration-300">
         <Header
           onSearch={handleSearch}
           onMenuToggle={() => setSidebarOpen(true)}
           currentUser={currentUser}
         />
         
-        <main className="p-4 lg:p-6">
+        <main className="p-3 sm:p-4 lg:p-6 max-w-full overflow-x-hidden">
           <Outlet context={{ currentWorkspace, currentUser }} />
         </main>
       </div>

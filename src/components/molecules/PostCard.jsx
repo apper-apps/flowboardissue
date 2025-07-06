@@ -41,23 +41,25 @@ const PostCard = ({
     onShare(post.Id)
   }
 
-  return (
-    <Card hoverable className="p-6">
+return (
+    <Card hoverable className="p-4 sm:p-6">
       <Link to={`/posts/${post.Id}`}>
-        <div className="space-y-4">
-          <div className="flex items-start justify-between">
-            <div className="flex-1">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2 line-clamp-2">
+        <div className="space-y-3 sm:space-y-4">
+          <div className="flex items-start justify-between gap-3">
+            <div className="flex-1 min-w-0">
+              <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 line-clamp-2">
                 {post.title}
               </h3>
-              <p className="text-gray-600 text-sm line-clamp-3">
-                {post.content?.replace(/<[^>]*>/g, '').substring(0, 150)}...
+              <p className="text-gray-600 text-xs sm:text-sm line-clamp-3">
+                {post.content?.replace(/<[^>]*>/g, '').substring(0, 120)}...
               </p>
             </div>
-            <StatusBadge status={post.status} />
+            <div className="flex-shrink-0">
+              <StatusBadge status={post.status} />
+            </div>
           </div>
 
-          <div className="flex items-center justify-between">
+<div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0">
             <div className="flex items-center gap-2">
               <Avatar 
                 src={author?.avatar} 
@@ -66,22 +68,24 @@ const PostCard = ({
                 fallback={author?.name}
               />
               <div>
-                <div className="text-sm font-medium">{author?.name}</div>
+                <div className="text-xs sm:text-sm font-medium">{author?.name}</div>
                 <div className="text-xs text-gray-500">
                   {format(new Date(post.createdAt), 'MMM d, yyyy')}
                 </div>
               </div>
             </div>
 
-            <div className="flex items-center gap-2">
+<div className="flex items-center gap-1 sm:gap-2 flex-wrap">
               {post.status === 'In Review' && (
                 <Button
                   variant="success"
                   size="sm"
                   onClick={handleApprove}
                   icon="Check"
+                  className="text-xs sm:text-sm"
                 >
-                  Approve
+                  <span className="hidden sm:inline">Approve</span>
+                  <span className="sm:hidden">✓</span>
                 </Button>
               )}
               <Button
@@ -89,25 +93,27 @@ const PostCard = ({
                 size="sm"
                 onClick={handleEdit}
                 icon="Edit"
+                className="text-xs sm:text-sm"
               >
-                Edit
+                <span className="hidden sm:inline">Edit</span>
               </Button>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={handleShare}
                 icon="Share"
+                className="text-xs sm:text-sm"
               >
-                Share
+                <span className="hidden sm:inline">Share</span>
               </Button>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={handleDelete}
                 icon="Trash2"
-                className="text-error hover:text-error"
+                className="text-error hover:text-error text-xs sm:text-sm"
               >
-                Delete
+                <span className="hidden sm:inline">Delete</span>
               </Button>
             </div>
           </div>

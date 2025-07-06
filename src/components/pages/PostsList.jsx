@@ -128,17 +128,17 @@ const PostsList = () => {
 
   const filteredPosts = getFilteredPosts()
 
-  return (
+return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="space-y-6"
+      className="space-y-4 sm:space-y-6"
     >
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Posts</h1>
-          <p className="text-gray-600">
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Posts</h1>
+          <p className="text-gray-600 text-sm sm:text-base">
             Manage your content and track approval progress
           </p>
         </div>
@@ -147,23 +147,26 @@ const PostsList = () => {
           to="/posts/new"
           variant="primary"
           icon="Plus"
+          className="w-full sm:w-auto"
         >
           Create Post
         </Button>
       </div>
 
-      {/* Search and Filters */}
-      <div className="flex flex-col md:flex-row gap-4">
+{/* Search and Filters */}
+      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
         <div className="flex-1">
           <SearchBar
             onSearch={setSearchTerm}
             placeholder="Search posts..."
           />
         </div>
-        <PostFilters
-          onFilterChange={setFilters}
-          activeFilters={filters}
-        />
+        <div className="w-full sm:w-auto">
+          <PostFilters
+            onFilterChange={setFilters}
+            activeFilters={filters}
+          />
+        </div>
       </div>
 
       {/* Posts Grid */}
@@ -178,8 +181,8 @@ const PostsList = () => {
           onAction={() => navigate('/posts/new')}
           icon="FileText"
         />
-      ) : (
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
           {filteredPosts.map((post, index) => (
             <motion.div
               key={post.Id}

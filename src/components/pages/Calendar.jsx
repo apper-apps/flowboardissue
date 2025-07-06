@@ -70,17 +70,17 @@ const Calendar = () => {
   const days = getDaysInMonth()
   const selectedDatePosts = getSelectedDatePosts()
 
-  return (
+return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="space-y-6"
+      className="space-y-4 sm:space-y-6"
     >
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Content Calendar</h1>
-          <p className="text-gray-600">
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Content Calendar</h1>
+          <p className="text-gray-600 text-sm sm:text-base">
             Schedule and track your content publishing dates
           </p>
         </div>
@@ -88,51 +88,56 @@ const Calendar = () => {
           variant="primary"
           onClick={() => window.location.href = '/posts/new'}
           icon="Plus"
+          className="w-full sm:w-auto"
         >
-          Schedule Post
+          <span className="sm:inline">Schedule Post</span>
+          <span className="sm:hidden">Schedule</span>
         </Button>
       </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
         {/* Calendar */}
         <div className="lg:col-span-2">
-          <Card className="p-6">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-semibold">
+          <Card className="p-3 sm:p-6">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0 mb-4 sm:mb-6">
+              <h2 className="text-lg sm:text-xl font-semibold">
                 {format(currentDate, 'MMMM yyyy')}
               </h2>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1 sm:gap-2 w-full sm:w-auto">
                 <Button
                   variant="outline"
                   size="sm"
                   onClick={() => navigateMonth(-1)}
                   icon="ChevronLeft"
+                  className="flex-1 sm:flex-none"
                 />
                 <Button
                   variant="outline"
                   size="sm"
                   onClick={() => setCurrentDate(new Date())}
+                  className="flex-1 sm:flex-none px-2 sm:px-3"
                 >
-                  Today
+                  <span className="hidden sm:inline">Today</span>
+                  <span className="sm:hidden">Now</span>
                 </Button>
                 <Button
                   variant="outline"
                   size="sm"
                   onClick={() => navigateMonth(1)}
                   icon="ChevronRight"
+                  className="flex-1 sm:flex-none"
                 />
               </div>
             </div>
-
-            <div className="grid grid-cols-7 gap-1 mb-4">
+<div className="grid grid-cols-7 gap-0.5 sm:gap-1 mb-2 sm:mb-4">
               {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
-                <div key={day} className="p-2 text-center text-sm font-medium text-gray-600">
-                  {day}
+                <div key={day} className="p-1 sm:p-2 text-center text-xs sm:text-sm font-medium text-gray-600">
+                  <span className="hidden sm:inline">{day}</span>
+                  <span className="sm:hidden">{day.charAt(0)}</span>
                 </div>
               ))}
             </div>
 
-            <div className="grid grid-cols-7 gap-1">
+            <div className="grid grid-cols-7 gap-0.5 sm:gap-1">
               {days.map((day, index) => {
                 const dayPosts = getPostsForDate(day)
                 const isSelected = isSameDay(day, selectedDate)
@@ -145,7 +150,7 @@ const Calendar = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: index * 0.02 }}
                     onClick={() => setSelectedDate(day)}
-                    className={`p-2 min-h-[80px] border rounded-lg transition-all hover:shadow-md ${
+                    className={`p-1 sm:p-2 min-h-[60px] sm:min-h-[80px] border rounded-md sm:rounded-lg transition-all hover:shadow-md active:scale-95 ${
                       isSelected
                         ? 'bg-primary text-white border-primary'
                         : isCurrentDay
@@ -153,11 +158,11 @@ const Calendar = () => {
                         : 'bg-white border-gray-200 hover:border-gray-300'
                     }`}
                   >
-                    <div className="text-sm font-medium mb-1">
+                    <div className="text-xs sm:text-sm font-medium mb-1">
                       {format(day, 'd')}
                     </div>
-                    <div className="space-y-1">
-                      {dayPosts.slice(0, 2).map((post, idx) => (
+                    <div className="space-y-0.5 sm:space-y-1">
+                      {dayPosts.slice(0, window.innerWidth < 640 ? 1 : 2).map((post, idx) => (
                         <div
                           key={post.Id}
                           className={`text-xs px-1 py-0.5 rounded truncate ${
@@ -165,12 +170,12 @@ const Calendar = () => {
                           }`}
                           title={post.title}
                         >
-                          {post.title}
+                          {post.title.length > 10 ? `${post.title.substring(0, 10)}...` : post.title}
                         </div>
                       ))}
-                      {dayPosts.length > 2 && (
+                      {dayPosts.length > (window.innerWidth < 640 ? 1 : 2) && (
                         <div className={`text-xs ${isSelected ? 'text-white/80' : 'text-gray-500'}`}>
-                          +{dayPosts.length - 2} more
+                          +{dayPosts.length - (window.innerWidth < 640 ? 1 : 2)}
                         </div>
                       )}
                     </div>
@@ -181,11 +186,12 @@ const Calendar = () => {
           </Card>
         </div>
 
-        {/* Selected Date Details */}
-        <div className="space-y-6">
-          <Card className="p-6">
-            <h3 className="text-lg font-semibold mb-4">
-              {format(selectedDate, 'MMMM d, yyyy')}
+{/* Selected Date Details */}
+        <div className="space-y-4 sm:space-y-6">
+          <Card className="p-4 sm:p-6">
+            <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">
+              <span className="hidden sm:inline">{format(selectedDate, 'MMMM d, yyyy')}</span>
+              <span className="sm:hidden">{format(selectedDate, 'MMM d, yyyy')}</span>
             </h3>
             
             {selectedDatePosts.length === 0 ? (
@@ -197,23 +203,23 @@ const Calendar = () => {
                 icon="Calendar"
               />
             ) : (
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 {selectedDatePosts.map((post) => (
                   <motion.div
                     key={post.Id}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer"
+                    className="p-3 sm:p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer active:scale-98"
                     onClick={() => window.location.href = `/posts/${post.Id}`}
                   >
-                    <div className="flex items-start justify-between mb-2">
-                      <h4 className="font-medium text-gray-900 line-clamp-2">
+                    <div className="flex items-start justify-between mb-2 gap-2">
+                      <h4 className="font-medium text-gray-900 line-clamp-2 text-sm sm:text-base">
                         {post.title}
                       </h4>
                       <StatusBadge status={post.status} />
                     </div>
-                    <p className="text-sm text-gray-600 line-clamp-2">
-                      {post.content?.replace(/<[^>]*>/g, '').substring(0, 100)}...
+                    <p className="text-xs sm:text-sm text-gray-600 line-clamp-2">
+                      {post.content?.replace(/<[^>]*>/g, '').substring(0, 80)}...
                     </p>
                   </motion.div>
                 ))}
@@ -221,28 +227,28 @@ const Calendar = () => {
             )}
           </Card>
 
-          <Card className="p-6">
-            <h3 className="text-lg font-semibold mb-4">Quick Stats</h3>
-            <div className="space-y-3">
+<Card className="p-4 sm:p-6">
+            <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Quick Stats</h3>
+            <div className="space-y-2 sm:space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-600">Total Posts</span>
-                <span className="font-medium">{posts.length}</span>
+                <span className="text-xs sm:text-sm text-gray-600">Total Posts</span>
+                <span className="font-medium text-sm sm:text-base">{posts.length}</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-600">Published</span>
-                <span className="font-medium text-green-600">
+                <span className="text-xs sm:text-sm text-gray-600">Published</span>
+                <span className="font-medium text-green-600 text-sm sm:text-base">
                   {posts.filter(p => p.status === 'Published').length}
                 </span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-600">In Review</span>
-                <span className="font-medium text-yellow-600">
+                <span className="text-xs sm:text-sm text-gray-600">In Review</span>
+                <span className="font-medium text-yellow-600 text-sm sm:text-base">
                   {posts.filter(p => p.status === 'In Review').length}
                 </span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-600">Draft</span>
-                <span className="font-medium text-gray-600">
+                <span className="text-xs sm:text-sm text-gray-600">Draft</span>
+                <span className="font-medium text-gray-600 text-sm sm:text-base">
                   {posts.filter(p => p.status === 'Draft').length}
                 </span>
               </div>
