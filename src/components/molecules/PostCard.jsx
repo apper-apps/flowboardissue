@@ -42,15 +42,15 @@ const PostCard = ({
   }
 
 return (
-    <Card hoverable className="p-4 sm:p-6">
+    <Card hoverable className="p-6 h-full">
       <Link to={`/posts/${post.Id}`}>
-        <div className="space-y-3 sm:space-y-4">
+        <div className="space-y-4 h-full flex flex-col">
           <div className="flex items-start justify-between gap-3">
             <div className="flex-1 min-w-0">
-              <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 line-clamp-2">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2 line-clamp-2">
                 {post.title}
               </h3>
-              <p className="text-gray-600 text-xs sm:text-sm line-clamp-3">
+              <p className="text-gray-600 text-sm line-clamp-3">
                 {post.content?.replace(/<[^>]*>/g, '').substring(0, 120)}...
               </p>
             </div>
@@ -59,8 +59,8 @@ return (
             </div>
           </div>
 
-<div className="flex flex-col gap-3">
-            <div className="flex items-center gap-2">
+          <div className="flex flex-col gap-4 mt-auto">
+            <div className="flex items-center gap-3">
               <Avatar 
                 src={author?.avatar} 
                 alt={author?.name}
@@ -68,24 +68,23 @@ return (
                 fallback={author?.name}
               />
               <div className="flex-1">
-                <div className="text-xs sm:text-sm font-medium">{author?.name}</div>
+                <div className="text-sm font-medium text-gray-900">{author?.name}</div>
                 <div className="text-xs text-gray-500">
                   {format(new Date(post.createdAt), 'MMM d, yyyy')}
                 </div>
               </div>
             </div>
 
-            <div className="flex items-center gap-1 sm:gap-2 flex-wrap">
+<div className="flex items-center gap-2 pt-2 border-t border-gray-100">
               {post.status === 'In Review' && (
                 <Button
                   variant="success"
                   size="sm"
                   onClick={handleApprove}
                   icon="Check"
-                  className="text-xs sm:text-sm flex-1 sm:flex-none"
+                  className="flex-1"
                 >
-                  <span className="hidden sm:inline">Approve</span>
-                  <span className="sm:hidden">✓</span>
+                  Approve
                 </Button>
               )}
               <Button
@@ -93,30 +92,27 @@ return (
                 size="sm"
                 onClick={handleEdit}
                 icon="Edit"
-                className="text-xs sm:text-sm flex-1 sm:flex-none"
+                className="flex-1"
               >
-                <span className="hidden sm:inline">Edit</span>
-                <span className="sm:hidden">✏️</span>
+                Edit
               </Button>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={handleShare}
                 icon="Share"
-                className="text-xs sm:text-sm flex-1 sm:flex-none"
+                className="flex-1"
               >
-                <span className="hidden sm:inline">Share</span>
-                <span className="sm:hidden">📤</span>
+                Share
               </Button>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={handleDelete}
                 icon="Trash2"
-                className="text-error hover:text-error text-xs sm:text-sm flex-1 sm:flex-none"
+                className="text-error hover:text-error flex-1"
               >
-                <span className="hidden sm:inline">Delete</span>
-                <span className="sm:hidden">🗑️</span>
+                Delete
               </Button>
             </div>
           </div>

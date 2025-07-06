@@ -12,8 +12,9 @@ const Card = ({
   
 return (
     <motion.div
-      whileHover={hoverable ? { y: -2 } : {}}
+      whileHover={hoverable ? { y: -4, scale: 1.02 } : {}}
       whileTap={hoverable ? { scale: 0.98 } : {}}
+      transition={{ duration: 0.2, ease: 'easeInOut' }}
       className={`${baseClasses} ${hoverClasses} ${className}`}
       {...props}
     >

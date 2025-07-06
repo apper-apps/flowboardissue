@@ -25,9 +25,9 @@ const Button = ({
     error: 'bg-error hover:bg-error/90 text-white shadow-sm focus:ring-error',
   }
   
-  const sizes = {
-    sm: 'px-3 py-1.5 text-sm rounded-md',
-    md: 'px-4 py-2 text-sm rounded-md',
+const sizes = {
+    sm: 'px-3 py-2 text-sm rounded-lg',
+    md: 'px-4 py-2.5 text-sm rounded-lg',
     lg: 'px-6 py-3 text-base rounded-lg',
   }
   
@@ -42,10 +42,11 @@ const Button = ({
     </>
   )
   
-  return (
+return (
     <motion.button
-      whileHover={{ scale: 1.02 }}
+      whileHover={{ scale: 1.02, y: -1 }}
       whileTap={{ scale: 0.98 }}
+      transition={{ duration: 0.15, ease: 'easeInOut' }}
       className={classes}
       disabled={disabled || loading}
       onClick={onClick}

@@ -13,18 +13,26 @@
     font-family: 'Inter', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #ffffff;
-    color: #111827;
+    background-color: #fafbfc;
+    color: #1a1d29;
     line-height: 1.6;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     line-height: 1.25;
+    color: #1a1d29;
   }
 
-.shimmer-bg {
-    background: linear-gradient(90deg, #f0f0f0 0%, #e0e0e0 50%, #f0f0f0 100%);
+  h1 { font-size: 2.25rem; font-weight: 700; }
+  h2 { font-size: 1.875rem; font-weight: 600; }
+  h3 { font-size: 1.5rem; font-weight: 600; }
+  h4 { font-size: 1.25rem; font-weight: 600; }
+  h5 { font-size: 1.125rem; font-weight: 600; }
+  h6 { font-size: 1rem; font-weight: 600; }
+
+  .shimmer-bg {
+    background: linear-gradient(90deg, #f8f9fa 0%, #e9ecef 50%, #f8f9fa 100%);
     background-size: 200px 100%;
     animation: shimmer 1.5s ease-in-out infinite;
   }
@@ -38,66 +46,65 @@
     }
   }
 }
-
 @layer components {
   .btn {
-    @apply px-3 py-2 sm:px-4 sm:py-2 rounded-md font-medium transition-all duration-200 inline-flex items-center justify-center gap-1 sm:gap-2 text-sm sm:text-base min-h-[44px] sm:min-h-fit;
+    @apply px-4 py-2.5 rounded-lg font-medium transition-all duration-200 inline-flex items-center justify-center gap-2 text-sm min-h-[44px] sm:min-h-fit;
   }
   .btn-primary {
-    @apply bg-primary hover:bg-primary/90 text-white shadow-sm hover:shadow-primary active:scale-95;
+    @apply bg-primary hover:bg-primary/90 text-white shadow-sm hover:shadow-lg active:scale-95 border border-transparent;
   }
 
   .btn-secondary {
-    @apply bg-secondary hover:bg-secondary/90 text-white shadow-sm active:scale-95;
+    @apply bg-secondary hover:bg-secondary/90 text-white shadow-sm hover:shadow-lg active:scale-95 border border-transparent;
   }
 
   .btn-outline {
-    @apply border border-gray-300 hover:border-gray-400 text-gray-700 hover:text-gray-900 bg-white hover:bg-gray-50 active:scale-95;
+    @apply border border-gray-300 hover:border-primary/50 text-gray-700 hover:text-primary bg-white hover:bg-primary/5 active:scale-95 shadow-sm;
   }
 
   .btn-ghost {
-    @apply text-gray-600 hover:text-gray-900 hover:bg-gray-100 active:scale-95;
+    @apply text-gray-600 hover:text-gray-900 hover:bg-gray-100 active:scale-95 border border-transparent;
   }
 
   .card {
-    @apply bg-white rounded-lg shadow-card border border-gray-200;
+    @apply bg-white rounded-xl shadow-card border border-gray-200/60;
   }
 
   .card-elevated {
-    @apply bg-white rounded-lg shadow-elevated border border-gray-200;
+    @apply bg-white rounded-xl shadow-elevated border border-gray-200/60;
   }
 
-.input {
-    @apply w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm sm:text-base min-h-[44px] sm:min-h-fit;
+  .input {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm min-h-[44px] sm:min-h-fit transition-all duration-200;
   }
-.textarea {
-    @apply w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none text-sm sm:text-base min-h-[44px] sm:min-h-fit;
+  .textarea {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary resize-none text-sm min-h-[44px] sm:min-h-fit transition-all duration-200;
   }
   .status-badge {
-    @apply px-3 py-1 rounded-full text-xs font-medium;
+    @apply px-3 py-1.5 rounded-full text-xs font-semibold;
   }
 
   .status-draft {
-    @apply bg-gray-100 text-gray-800;
+    @apply bg-gray-100 text-gray-700;
   }
 
   .status-review {
-    @apply bg-yellow-100 text-yellow-800;
+    @apply bg-amber-100 text-amber-700;
   }
 
   .status-approved {
-    @apply bg-green-100 text-green-800;
+    @apply bg-emerald-100 text-emerald-700;
   }
 
   .status-published {
-    @apply bg-blue-100 text-blue-800;
+    @apply bg-blue-100 text-blue-700;
   }
 
-.sidebar-link {
-    @apply flex items-center gap-3 px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors duration-200 min-h-[44px] sm:min-h-fit;
+  .sidebar-link {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-all duration-200 min-h-[44px] sm:min-h-fit;
   }
   .sidebar-link.active {
-    @apply bg-primary text-white hover:bg-primary/90 hover:text-white;
+    @apply bg-primary text-white hover:bg-primary/90 hover:text-white shadow-sm;
   }
 }
 

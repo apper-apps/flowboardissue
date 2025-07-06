@@ -40,7 +40,7 @@ const Layout = () => {
   }
 
 return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-surface">
       <Sidebar
         isOpen={sidebarOpen}
         onClose={() => setSidebarOpen(false)}
@@ -56,8 +56,8 @@ return (
           currentUser={currentUser}
         />
         
-        <main className="p-3 sm:p-4 lg:p-6 max-w-full overflow-x-hidden">
-          <div className="max-w-7xl mx-auto">
+        <main className="p-4 sm:p-6 lg:p-8 max-w-full overflow-x-hidden min-h-[calc(100vh-72px)]">
+          <div className="max-w-8xl mx-auto">
             <Outlet context={{ currentWorkspace, currentUser }} />
           </div>
         </main>
