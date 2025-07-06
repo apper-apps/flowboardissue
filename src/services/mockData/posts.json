@@ -1,0 +1,80 @@
+[
+  {
+    "Id": 1,
+    "title": "Introducing FlowBoard: The Future of Content Collaboration",
+    "content": "<p>We're excited to announce the launch of FlowBoard, a revolutionary platform that streamlines content collaboration and approval workflows. Built for modern marketing teams, FlowBoard eliminates the chaos of email chains and scattered feedback.</p><p>Key features include:</p><ul><li>Real-time collaborative editing</li><li>Streamlined approval workflows</li><li>Centralized feedback system</li><li>Brand-based workspace organization</li></ul><p>Join thousands of teams who have already transformed their content creation process with FlowBoard.</p>",
+    "status": "Published",
+    "authorId": 1,
+    "workspaceId": 1,
+    "createdAt": "2024-01-15T10:30:00Z",
+    "updatedAt": "2024-01-15T14:45:00Z",
+    "publishDate": "2024-01-16T09:00:00Z",
+    "tags": ["product launch", "collaboration", "marketing"],
+    "mediaIds": [1, 2]
+  },
+  {
+    "Id": 2,
+    "title": "5 Best Practices for Content Approval Workflows",
+    "content": "<p>Effective content approval workflows are essential for maintaining quality and consistency across your marketing campaigns. Here are five proven strategies that top-performing teams use:</p><p><strong>1. Establish Clear Approval Stages</strong></p><p>Define specific stages like Draft, Review, Approved, and Published. Each stage should have clear criteria and responsibilities.</p><p><strong>2. Use Centralized Feedback Systems</strong></p><p>Avoid scattered feedback across emails and multiple platforms. Use a single system where all comments and suggestions are tracked.</p><p><strong>3. Set Clear Deadlines</strong></p><p>Every piece of content should have a clear timeline with deadlines for each approval stage.</p><p><strong>4. Implement Role-Based Permissions</strong></p><p>Different team members should have different levels of access based on their role in the content creation process.</p><p><strong>5. Track and Measure Performance</strong></p><p>Monitor your approval workflows to identify bottlenecks and optimize the process over time.</p>",
+    "status": "Approved",
+    "authorId": 2,
+    "workspaceId": 1,
+    "createdAt": "2024-01-14T08:15:00Z",
+    "updatedAt": "2024-01-14T16:20:00Z",
+    "publishDate": "2024-01-17T08:00:00Z",
+    "tags": ["best practices", "workflows", "productivity"],
+    "mediaIds": [3]
+  },
+  {
+    "Id": 3,
+    "title": "How to Build High-Performing Marketing Teams",
+    "content": "<p>Building a high-performing marketing team requires more than just hiring talented individuals. It's about creating an environment where creativity thrives and processes enable rather than hinder success.</p><p>This comprehensive guide covers everything from team structure to collaboration tools, helping you build a marketing powerhouse that delivers exceptional results.</p>",
+    "status": "In Review",
+    "authorId": 3,
+    "workspaceId": 2,
+    "createdAt": "2024-01-13T11:45:00Z",
+    "updatedAt": "2024-01-13T15:30:00Z",
+    "publishDate": "2024-01-18T10:00:00Z",
+    "tags": ["team building", "marketing", "leadership"],
+    "mediaIds": []
+  },
+  {
+    "Id": 4,
+    "title": "The Complete Guide to Content Calendar Management",
+    "content": "<p>A well-organized content calendar is the backbone of any successful content strategy. It helps you plan, organize, and execute your content marketing efforts with precision and consistency.</p><p>In this guide, we'll explore how to create and maintain a content calendar that drives results and keeps your team aligned on goals and deadlines.</p>",
+    "status": "Draft",
+    "authorId": 1,
+    "workspaceId": 1,
+    "createdAt": "2024-01-12T09:20:00Z",
+    "updatedAt": "2024-01-12T09:20:00Z",
+    "publishDate": null,
+    "tags": ["content planning", "calendar", "organization"],
+    "mediaIds": [4, 5]
+  },
+  {
+    "Id": 5,
+    "title": "Maximizing ROI with Content Collaboration Tools",
+    "content": "<p>Modern marketing teams need modern tools to stay competitive. Content collaboration platforms have become essential for teams looking to maximize their return on investment while maintaining high-quality output.</p><p>Learn how the right tools can transform your content creation process and deliver measurable business results.</p>",
+    "status": "In Review",
+    "authorId": 2,
+    "workspaceId": 2,
+    "createdAt": "2024-01-11T14:10:00Z",
+    "updatedAt": "2024-01-11T17:45:00Z",
+    "publishDate": "2024-01-19T11:00:00Z",
+    "tags": ["ROI", "collaboration", "tools"],
+    "mediaIds": [6]
+  },
+  {
+    "Id": 6,
+    "title": "Remote Team Collaboration: A New Era of Content Creation",
+    "content": "<p>The shift to remote work has fundamentally changed how marketing teams collaborate on content. While it presents challenges, it also opens up new opportunities for creativity and efficiency.</p><p>This post explores the tools, strategies, and best practices that make remote content collaboration not just possible, but more effective than traditional in-person approaches.</p>",
+    "status": "Published",
+    "authorId": 3,
+    "workspaceId": 1,
+    "createdAt": "2024-01-10T13:25:00Z",
+    "updatedAt": "2024-01-10T18:30:00Z",
+    "publishDate": "2024-01-11T09:00:00Z",
+    "tags": ["remote work", "collaboration", "productivity"],
+    "mediaIds": [7, 8]
+  }
+]

@@ -1,0 +1,110 @@
+[
+  {
+    "Id": 1,
+    "postId": 1,
+    "userId": 2,
+    "content": "Great introduction to the platform! I think we should add more specific examples of how teams can get started.",
+    "parentId": null,
+    "createdAt": "2024-01-15T11:00:00Z",
+    "resolved": false
+  },
+  {
+    "Id": 2,
+    "postId": 1,
+    "userId": 1,
+    "content": "Good point! I'll add a quick start guide section in the next revision.",
+    "parentId": 1,
+    "createdAt": "2024-01-15T11:15:00Z",
+    "resolved": false
+  },
+  {
+    "Id": 3,
+    "postId": 1,
+    "userId": 3,
+    "content": "The key features list is excellent. Should we include pricing information or keep it separate?",
+    "parentId": null,
+    "createdAt": "2024-01-15T12:30:00Z",
+    "resolved": true
+  },
+  {
+    "Id": 4,
+    "postId": 2,
+    "userId": 1,
+    "content": "This is exactly what our audience needs. The best practices are spot-on based on our user research.",
+    "parentId": null,
+    "createdAt": "2024-01-14T09:45:00Z",
+    "resolved": false
+  },
+  {
+    "Id": 5,
+    "postId": 2,
+    "userId": 3,
+    "content": "Consider adding a case study or real-world example for each practice. It would make the content more actionable.",
+    "parentId": null,
+    "createdAt": "2024-01-14T10:20:00Z",
+    "resolved": false
+  },
+  {
+    "Id": 6,
+    "postId": 2,
+    "userId": 2,
+    "content": "Excellent suggestion! I have a great case study from TechCorp that would fit perfectly with practice #3.",
+    "parentId": 5,
+    "createdAt": "2024-01-14T10:35:00Z",
+    "resolved": false
+  },
+  {
+    "Id": 7,
+    "postId": 3,
+    "userId": 1,
+    "content": "The team structure section needs more detail. Can we expand on the roles and responsibilities?",
+    "parentId": null,
+    "createdAt": "2024-01-13T12:00:00Z",
+    "resolved": false
+  },
+  {
+    "Id": 8,
+    "postId": 3,
+    "userId": 2,
+    "content": "Also, we should include some metrics on what makes a team high-performing. Data always helps with credibility.",
+    "parentId": null,
+    "createdAt": "2024-01-13T13:15:00Z",
+    "resolved": false
+  },
+  {
+    "Id": 9,
+    "postId": 4,
+    "userId": 2,
+    "content": "This draft has great potential! The introduction really hooks the reader. Consider adding some templates or examples.",
+    "parentId": null,
+    "createdAt": "2024-01-12T10:00:00Z",
+    "resolved": false
+  },
+  {
+    "Id": 10,
+    "postId": 5,
+    "userId": 3,
+    "content": "The ROI angle is perfect for our audience. We should include some specific ROI calculations or benchmarks.",
+    "parentId": null,
+    "createdAt": "2024-01-11T15:30:00Z",
+    "resolved": false
+  },
+  {
+    "Id": 11,
+    "postId": 5,
+    "userId": 1,
+    "content": "Agreed! I'll add a section with industry benchmarks and a simple ROI calculator framework.",
+    "parentId": 10,
+    "createdAt": "2024-01-11T16:00:00Z",
+    "resolved": false
+  },
+  {
+    "Id": 12,
+    "postId": 6,
+    "userId": 2,
+    "content": "Fantastic piece on remote collaboration! The insights about asynchronous work are particularly valuable.",
+    "parentId": null,
+    "createdAt": "2024-01-10T14:00:00Z",
+    "resolved": true
+  }
+]
