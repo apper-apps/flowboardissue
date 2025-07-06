@@ -59,7 +59,7 @@ return (
             </div>
           </div>
 
-<div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0">
+<div className="flex flex-col gap-3">
             <div className="flex items-center gap-2">
               <Avatar 
                 src={author?.avatar} 
@@ -67,7 +67,7 @@ return (
                 size="sm"
                 fallback={author?.name}
               />
-              <div>
+              <div className="flex-1">
                 <div className="text-xs sm:text-sm font-medium">{author?.name}</div>
                 <div className="text-xs text-gray-500">
                   {format(new Date(post.createdAt), 'MMM d, yyyy')}
@@ -75,14 +75,14 @@ return (
               </div>
             </div>
 
-<div className="flex items-center gap-1 sm:gap-2 flex-wrap">
+            <div className="flex items-center gap-1 sm:gap-2 flex-wrap">
               {post.status === 'In Review' && (
                 <Button
                   variant="success"
                   size="sm"
                   onClick={handleApprove}
                   icon="Check"
-                  className="text-xs sm:text-sm"
+                  className="text-xs sm:text-sm flex-1 sm:flex-none"
                 >
                   <span className="hidden sm:inline">Approve</span>
                   <span className="sm:hidden">✓</span>
@@ -93,27 +93,30 @@ return (
                 size="sm"
                 onClick={handleEdit}
                 icon="Edit"
-                className="text-xs sm:text-sm"
+                className="text-xs sm:text-sm flex-1 sm:flex-none"
               >
                 <span className="hidden sm:inline">Edit</span>
+                <span className="sm:hidden">✏️</span>
               </Button>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={handleShare}
                 icon="Share"
-                className="text-xs sm:text-sm"
+                className="text-xs sm:text-sm flex-1 sm:flex-none"
               >
                 <span className="hidden sm:inline">Share</span>
+                <span className="sm:hidden">📤</span>
               </Button>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={handleDelete}
                 icon="Trash2"
-                className="text-error hover:text-error text-xs sm:text-sm"
+                className="text-error hover:text-error text-xs sm:text-sm flex-1 sm:flex-none"
               >
                 <span className="hidden sm:inline">Delete</span>
+                <span className="sm:hidden">🗑️</span>
               </Button>
             </div>
           </div>

@@ -57,7 +57,9 @@ return (
         />
         
         <main className="p-3 sm:p-4 lg:p-6 max-w-full overflow-x-hidden">
-          <Outlet context={{ currentWorkspace, currentUser }} />
+          <div className="max-w-7xl mx-auto">
+            <Outlet context={{ currentWorkspace, currentUser }} />
+          </div>
         </main>
       </div>
     </div>

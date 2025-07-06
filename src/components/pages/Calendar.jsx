@@ -128,7 +128,8 @@ return (
                 />
               </div>
             </div>
-<div className="grid grid-cols-7 gap-0.5 sm:gap-1 mb-2 sm:mb-4">
+            
+            <div className="grid grid-cols-7 gap-0.5 sm:gap-1 mb-2 sm:mb-4">
               {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
                 <div key={day} className="p-1 sm:p-2 text-center text-xs sm:text-sm font-medium text-gray-600">
                   <span className="hidden sm:inline">{day}</span>
@@ -150,7 +151,7 @@ return (
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: index * 0.02 }}
                     onClick={() => setSelectedDate(day)}
-                    className={`p-1 sm:p-2 min-h-[60px] sm:min-h-[80px] border rounded-md sm:rounded-lg transition-all hover:shadow-md active:scale-95 ${
+                    className={`p-1 sm:p-2 min-h-[80px] sm:min-h-[100px] border rounded-md sm:rounded-lg transition-all hover:shadow-md active:scale-95 ${
                       isSelected
                         ? 'bg-primary text-white border-primary'
                         : isCurrentDay
@@ -161,21 +162,36 @@ return (
                     <div className="text-xs sm:text-sm font-medium mb-1">
                       {format(day, 'd')}
                     </div>
-                    <div className="space-y-0.5 sm:space-y-1">
-                      {dayPosts.slice(0, window.innerWidth < 640 ? 1 : 2).map((post, idx) => (
-                        <div
+                    <div className="space-y-0.5 sm:space-y-1 flex-1">
+                      {dayPosts.slice(0, 3).map((post, idx) => (
+                        <motion.div
                           key={post.Id}
-                          className={`text-xs px-1 py-0.5 rounded truncate ${
-                            isSelected ? 'bg-white/20 text-white' : 'bg-gray-100 text-gray-800'
+                          initial={{ opacity: 0, y: 5 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: idx * 0.1 }}
+                          className={`text-xs px-1 py-0.5 rounded truncate transition-all ${
+                            isSelected 
+                              ? 'bg-white/20 text-white border border-white/30' 
+                              : 'bg-gray-100 text-gray-800 border border-gray-200 hover:bg-gray-200'
                           }`}
-                          title={post.title}
+                          title={`${post.title} - ${post.status}`}
                         >
-                          {post.title.length > 10 ? `${post.title.substring(0, 10)}...` : post.title}
-                        </div>
+                          <div className="flex items-center gap-1">
+                            <div className={`w-1.5 h-1.5 rounded-full ${
+                              post.status === 'Published' ? 'bg-green-500' :
+                              post.status === 'In Review' ? 'bg-yellow-500' :
+                              post.status === 'Approved' ? 'bg-blue-500' :
+                              'bg-gray-400'
+                            }`}></div>
+                            <span className="truncate">
+                              {post.title.length > 8 ? `${post.title.substring(0, 8)}...` : post.title}
+                            </span>
+                          </div>
+                        </motion.div>
                       ))}
-                      {dayPosts.length > (window.innerWidth < 640 ? 1 : 2) && (
-                        <div className={`text-xs ${isSelected ? 'text-white/80' : 'text-gray-500'}`}>
-                          +{dayPosts.length - (window.innerWidth < 640 ? 1 : 2)}
+                      {dayPosts.length > 3 && (
+                        <div className={`text-xs font-medium ${isSelected ? 'text-white/80' : 'text-gray-500'}`}>
+                          +{dayPosts.length - 3} more
                         </div>
                       )}
                     </div>
@@ -229,28 +245,28 @@ return (
 
 <Card className="p-4 sm:p-6">
             <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Quick Stats</h3>
-            <div className="space-y-2 sm:space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs sm:text-sm text-gray-600">Total Posts</span>
-                <span className="font-medium text-sm sm:text-base">{posts.length}</span>
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+              <div className="text-center p-3 bg-gray-50 rounded-lg">
+                <div className="text-lg sm:text-2xl font-bold text-gray-900">{posts.length}</div>
+                <div className="text-xs sm:text-sm text-gray-600">Total Posts</div>
               </div>
-              <div className="flex items-center justify-between">
-                <span className="text-xs sm:text-sm text-gray-600">Published</span>
-                <span className="font-medium text-green-600 text-sm sm:text-base">
+              <div className="text-center p-3 bg-green-50 rounded-lg">
+                <div className="text-lg sm:text-2xl font-bold text-green-600">
                   {posts.filter(p => p.status === 'Published').length}
-                </span>
+                </div>
+                <div className="text-xs sm:text-sm text-gray-600">Published</div>
               </div>
-              <div className="flex items-center justify-between">
-                <span className="text-xs sm:text-sm text-gray-600">In Review</span>
-                <span className="font-medium text-yellow-600 text-sm sm:text-base">
+              <div className="text-center p-3 bg-yellow-50 rounded-lg">
+                <div className="text-lg sm:text-2xl font-bold text-yellow-600">
                   {posts.filter(p => p.status === 'In Review').length}
-                </span>
+                </div>
+                <div className="text-xs sm:text-sm text-gray-600">In Review</div>
               </div>
-              <div className="flex items-center justify-between">
-                <span className="text-xs sm:text-sm text-gray-600">Draft</span>
-                <span className="font-medium text-gray-600 text-sm sm:text-base">
+              <div className="text-center p-3 bg-gray-50 rounded-lg">
+                <div className="text-lg sm:text-2xl font-bold text-gray-600">
                   {posts.filter(p => p.status === 'Draft').length}
-                </span>
+                </div>
+                <div className="text-xs sm:text-sm text-gray-600">Draft</div>
               </div>
             </div>
           </Card>

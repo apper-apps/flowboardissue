@@ -183,6 +183,32 @@
   }
 }
 
+/* Enhanced mobile interactions */
+@media (max-width: 768px) {
+  .btn {
+    @apply min-h-[48px] px-4 py-3;
+  }
+  
+  .input, .textarea {
+    @apply min-h-[48px] px-4 py-3 text-base;
+  }
+  
+  .sidebar-link {
+    @apply min-h-[48px] px-4 py-3;
+  }
+}
+
+/* Mobile calendar optimizations */
+@media (max-width: 640px) {
+  .calendar-day {
+    @apply min-h-[70px] p-1;
+  }
+  
+  .calendar-post {
+    @apply text-xs px-1 py-0.5;
+  }
+}
+
 /* Responsive text truncation */
 .line-clamp-2 {
   display: -webkit-box;
@@ -196,4 +222,16 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* Enhanced grid responsiveness */
+@media (min-width: 1280px) {
+  .posts-grid {
+    @apply grid-cols-4;
+  }
+}
+
+/* Improved focus states for accessibility */
+.focus-visible {
+  @apply outline-none ring-2 ring-primary ring-offset-2;
 }

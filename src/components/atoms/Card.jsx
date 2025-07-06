@@ -10,9 +10,10 @@ const Card = ({
   const baseClasses = elevated ? 'card-elevated' : 'card'
   const hoverClasses = hoverable ? 'hover:shadow-elevated transition-shadow duration-200' : ''
   
-  return (
+return (
     <motion.div
       whileHover={hoverable ? { y: -2 } : {}}
+      whileTap={hoverable ? { scale: 0.98 } : {}}
       className={`${baseClasses} ${hoverClasses} ${className}`}
       {...props}
     >
